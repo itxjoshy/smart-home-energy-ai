@@ -1,6 +1,4 @@
 # smart-home-energy-ai
-AI-powered smart home energy management app for West African households
-# smart-home-energy-ai
 
 Energy is expensive in Nigeria. Like, genuinely expensive — and most people have no idea where it's all going. You get your NEPA bill at the end of the month and it's just a number. No breakdown. No context. No way to know if the AC is killing you or if it's the freezer you leave running all night.
 
@@ -26,23 +24,24 @@ Most energy apps are built for the UK or US. This one isn't.
 
 ## Stack
 
-- **Frontend** — React + TypeScript
+- **Frontend** — React + JavaScript (Vite)
+- **Styling** — CSS
 - **Backend** — Firebase Cloud Functions
 - **Database** — Firebase Firestore (real-time)
-- **Smart plug data** — Tuya API (mock data generator included for dev)
+- **Smart plug data** — Mock data generator (simulates Nigerian household usage patterns)
 - **ML** — TensorFlow.js for usage prediction
 - **Recommendations** — LLM API for natural language suggestions
-- **Deployment** — Vercel + Firebase Hosting
+- **Deployment** — Vercel
 
 ---
 
 ## How it works
 
 ```
-smart plugs → data pipeline → firestore → tfjs model → llm → dashboard
+mock data generator → data pipeline → firestore → tfjs model → llm → dashboard
 ```
 
-The TensorFlow.js model learns your usage patterns over time and predicts what your consumption will look like over the next day or week. That data gets sent to an LLM which turns it into actual recommendations — not just "use less electricity" but "your freezer is running at full power between 2am and 6am when the NEPA supply is most stable, consider adjusting your generator schedule."
+The mock data generator simulates realistic Nigerian household power consumption — NEPA load shedding schedules, generator switching, and appliance patterns included. The TensorFlow.js model learns usage patterns over time and predicts what consumption will look like over the next day or week. That data gets sent to an LLM which turns it into actual recommendations — not just "use less electricity" but specific, actionable suggestions calculated in Naira.
 
 ---
 
@@ -53,9 +52,10 @@ The TensorFlow.js model learns your usage patterns over time and predicts what y
 - Daily and weekly usage predictions
 - Natural language savings recommendations in Naira
 - Works on 3G and intermittent connections
-- Mobile responsive
+- Mobile-first design
 
 Things I'm still building:
+
 - Anomaly detection for unusual spikes
 - Multi-device household profiles
 - PDF report export
@@ -68,12 +68,12 @@ Things I'm still building:
 git clone https://github.com/itxjoshy/smart-home-energy-ai.git
 cd smart-home-energy-ai
 npm install
-cp .env.example .env
-# add your Firebase and LLM API keys to .env
+cp .env.example .env.local
+# add your Firebase and LLM API keys to .env.local
 npm run dev
 ```
 
-For smart plug integration you need a Tuya developer account. If you just want to run it locally there's a mock data generator in `/src/services/mockData.ts` that simulates realistic Nigerian household usage patterns — load shedding schedules included.
+The mock data generator in `/src/services/mockData.js` runs out of the box with no external dependencies — no smart plug hardware or API account needed to develop locally.
 
 ---
 
@@ -81,31 +81,50 @@ For smart plug integration you need a Tuya developer account. If you just want t
 
 ```
 src/
-├── components/
-│   ├── Dashboard/        — main energy overview
-│   ├── DeviceList/       — per-device breakdown
-│   ├── Charts/           — usage visualisation
-│   └── AIAssistant/      — recommendations chat
-├── services/
-│   ├── firebase.ts       — firestore integration
-│   ├── smartplug.ts      — tuya api + mock data
-│   ├── prediction.ts     — tensorflow.js model
-│   └── llm.ts            — llm api calls
-├── models/               — trained tfjs model files
-└── hooks/                — custom react hooks
-functions/                — firebase cloud functions
+├── App.jsx                   — root component and routing
+├── App.css                   — app-level styles
+├── index.css                 — global styles and CSS variables
+├── main.jsx                  — entry point
+├── assets/                   — images and static files
+└── components/
+    ├── Dashboard/
+    │   ├── Dashboard.jsx     — main energy overview
+    │   └── Dashboard.css
+    ├── DeviceList/
+    │   ├── DeviceList.jsx    — per-device consumption breakdown
+    │   └── DeviceList.css
+    ├── Charts/
+    │   ├── Charts.jsx        — usage visualisation
+    │   └── Charts.css
+    └── AIAssistant/
+        ├── AIAssistant.jsx   — LLM recommendations chat
+        └── AIAssistant.css
+```
+
+---
+
+## Services
+
+```
+src/services/
+├── firebase.js       — firestore integration
+├── mockData.js       — Nigerian household data generator
+├── prediction.js     — tensorflow.js model
+└── llm.js            — llm api calls
 ```
 
 ---
 
 ## Status
 
-This is my final year project at Mewar International University. Currently in active development — started September 2026, submitting April 2027.
+This is my final year project at Mewar International University. Currently in active development — started June 2026, submitting April 2027.
 
 Milestones:
+
 - [x] Architecture and planning
-- [x] Firebase setup and data structure
-- [ ] Smart plug integration + mock data generator
+- [x] Vite + React project setup
+- [x] Firebase project initialised
+- [ ] Mock data generator
 - [ ] Real-time dashboard
 - [ ] TensorFlow.js prediction model
 - [ ] LLM recommendations layer
