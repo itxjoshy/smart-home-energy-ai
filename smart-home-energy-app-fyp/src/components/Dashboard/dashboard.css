@@ -1,0 +1,129 @@
+.card-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+  gap: 1rem;
+  text-align: center;
+}
+.tag {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--accent);
+}
+.tag .indicator {
+  width: 5px;
+  height: 5px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.card-item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .card-hdr {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--color-text);
+  }
+  .card-body {
+    font-weight: bold;
+    color: var(--color-text);
+    text-wrap: nowrap;
+  }
+}
+.card-content > :nth-child(1) {
+  border-right: 1px solid var(--border);
+  padding-right: var(--space-lg);
+}
+.card-content > :nth-child(3) {
+  border-left: 1px solid var(--border);
+  padding-left: var(--space-lg);
+}
+.amount-monthly {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--accent);
+}
+.saving-insight-ai {
+  font-size: 1rem;
+  color: var(--accent);
+  background-color: var(--accent-soft);
+  width: max-content;
+  padding: 5px 10px;
+}
+.est-savings {
+  h3 {
+    opacity: 0.7;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+.section:has(.card) {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+.energy-efficiency {
+  background: var(--accent-soft);
+  padding: var(--space-md);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--accent);
+    font-size: 0.8rem;
+    width: max-content;
+  }
+  p {
+    font-size: 1rem;
+    color: var(--color-text);
+  }
+}
+.energy-efficiency .card-body {
+  display: flex;
+  gap: var(--space-md);
+  .percentage-count {
+    font-size: 1rem;
+    font-weight: bold;
+
+    border: 5px solid var(--accent);
+    border-radius: 30px;
+    padding: 5px;
+    display: grid;
+    place-items: center;
+  }
+}
+.source-breakdown {
+  h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.8rem;
+    width: max-content;
+    margin-bottom: 0.5rem;
+  }
+}

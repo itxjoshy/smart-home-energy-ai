@@ -186,7 +186,7 @@ span {
   background: var(--bg-card);
   border-radius: var(--radius-lg);
   padding: var(--space-md);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--border);
   box-shadow: var(--shadow-card);
 }
 

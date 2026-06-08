@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import { Home, Monitor, Zap, BarChart2, User, Bell } from "lucide-react";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 function App() {
   const [activeTab, setActiveTab] = useState("home");
 
   return (
-    <div>
+    <main>
       <div className="page-header">
         <h1>Smart Home Energy AI</h1>
         <Bell size={23} color="var(--accent)" />
       </div>
-      {activeTab === "home" && <div>Home Content</div>}
+      {activeTab === "home" && <Dashboard />}
       {activeTab === "devices" && <div>Devices Content</div>}
       {activeTab === "insights" && <div>Insights Content</div>}
       {activeTab === "chatbot" && <div>Chatbot Content</div>}
@@ -47,7 +48,7 @@ function App() {
           Chatbot
         </button>
       </nav>
-    </div>
+    </main>
   );
 }
 
