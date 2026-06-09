@@ -1,6 +1,15 @@
 import React from "react";
 import { Banknote } from "lucide-react";
-import { Pie, PieChart, Cell, Tooltip, ResponsiveContainer } from "recharts";
+import {
+  Pie,
+  PieChart,
+  Cell,
+  Tooltip,
+  BarChart,
+  Bar,
+  XAxis,
+  ResponsiveContainer,
+} from "recharts";
 
 import "./dashboard.css";
 function Dashboard() {
@@ -31,6 +40,22 @@ function Dashboard() {
   const enUsageData = [
     { name: "NEPA", value: 70 },
     { name: "Generator", value: 30 },
+  ];
+
+  const peakIndex = 6;
+  const energyData = [
+    { time: "12AM", value: 0.3 },
+    { time: "", value: 0.25 },
+    { time: "", value: 0.35 },
+    { time: "6AM", value: 0.55 },
+    { time: "", value: 0.8 },
+    { time: "12PM", value: 1.1 },
+    { time: "", value: 1.2 }, // peak
+    { time: "", value: 0.9 },
+    { time: "6PM", value: 0.6 },
+    { time: "", value: 0.42 },
+    { time: "", value: 0.3 },
+    { time: "NOW", value: 0.35 },
   ];
   const COLORS = ["#f59e0b", "#0062b8ff"];
   return (
@@ -115,14 +140,14 @@ function Dashboard() {
               width: "max-content",
             }}
           >
-            <ResponsiveContainer width={165} height={165}>
+            <ResponsiveContainer width={120} height={120}>
               <PieChart>
                 <Pie
                   data={enUsageData}
                   cx="50%"
                   cy="50%"
-                  innerRadius={70}
-                  outerRadius={80}
+                  innerRadius={42}
+                  outerRadius={52}
                   paddingAngle={0}
                   dataKey="value"
                 >
@@ -154,7 +179,7 @@ function Dashboard() {
               total <br /> 100%
             </div>
           </div>
-          {/* <div className="chart-breakdown">
+          <div className="chart-breakdown">
             <div className="chart-item">
               <div
                 className="chart-color"
@@ -171,8 +196,38 @@ function Dashboard() {
               <div className="chart-label">Generator</div>
               <div className="chart-value">30%</div>
             </div>
-          </div> */}
+          </div>
         </div>
+      </div>
+      <div className="card section usage-trend">
+        <div className="hdr">
+          <h3>energy usage trend</h3>
+          <div className="peak-metrics">peak: 1.2kW</div>
+        </div>
+        <ResponsiveContainer width="100%" height={150}>
+          <BarChart data={energyData}>
+            <XAxis
+              padding={{ left: 0 }}
+              dataKey="time"
+              axisLine={false}
+              tickLine={false}
+              tick={{
+                fill: "#ffffffff",
+                fontSize: 12,
+              }}
+            />
+
+            <Bar dataKey="value" radius={[2, 2, 0, 0]} barSize={20}>
+              {energyData.map((_, index) => (
+                <Cell
+                  key={index}
+                  fill={index === peakIndex ? "#4FC16A" : "#3C7F4A"}
+                  fillOpacity={index === peakIndex ? 1 : 0.85}
+                />
+              ))}
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>
       </div>
     </section>
   );
