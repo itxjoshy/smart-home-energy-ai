@@ -144,8 +144,7 @@
     gap: 40px;
   }
 }
-.usage-trend {
-}
+
 .usage-trend .hdr {
   display: flex;
   align-items: center;
@@ -167,4 +166,90 @@
     border-radius: 6px;
     text-transform: capitalize;
   }
+}
+.ai-recommendations {
+  .hdr {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-sm);
+    h3 {
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 0.8rem;
+      width: max-content;
+      opacity: 0.7;
+    }
+    button {
+      font-size: 0.8rem;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 4px;
+      background: none;
+      color: var(--accent);
+      cursor: pointer;
+      text-transform: capitalize;
+      &:hover {
+        background: darken(var(--accent), 5%);
+      }
+    }
+  }
+  .section-body {
+    overflow-y: scroll;
+    padding-left: var(--space-sm);
+    display: flex;
+    gap: var(--space-sm);
+    .recommendation {
+      min-width: 300px;
+      height: 200px;
+      padding: 14px 15px;
+      background: var(--bg-card);
+      box-shadow: var(--shadow-card);
+      transition: background 0.3s ease;
+      &:hover {
+        background: darken(var(--bg-card), 5%);
+      }
+      h4 {
+        color: var(--text-primary);
+      }
+      p {
+        font-size: 0.7rem;
+        max-width: 90%;
+      }
+    }
+  }
+  .section-body::-webkit-scrollbar {
+    display: none;
+  }
+  .section-body::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
+  }
+}
+.priority {
+  border: 1px solid #ff6b6ba2;
+  border-left: 3px solid #ff6b6b;
+  border-radius: var(--radius-md);
+  color: #ff6b6b;
+  background: #ff6b6b75;
+}
+.savings {
+  border: 1px solid var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-md);
+  background: var(--accent-soft);
+}
+.warning {
+  border: 1px solid var(--warning-soft);
+  border-left: 3px solid var(--warning);
+  border-radius: var(--radius-md);
+  background: var(--warning-soft);
+}
+.visible-tag {
+  width: max-content;
+  border: none;
+  padding: 7px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  margin-bottom: var(--space-sm);
 }

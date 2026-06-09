@@ -58,6 +58,34 @@ function Dashboard() {
     { time: "NOW", value: 0.35 },
   ];
   const COLORS = ["#f59e0b", "#0062b8ff"];
+
+  const aiRecommendations = [
+    {
+      id: 1,
+      title: "Reduce usage during peak hours",
+      Vtag: "high priority",
+      tag: "priority",
+      description:
+        "Try to use heavy appliances during off-peak hours to save on energy costs.",
+    },
+    {
+      id: 2,
+      title: "Consider energy-efficient appliances",
+      Vtag: "savings alert",
+      tag: "savings",
+      description:
+        "Upgrading to energy-efficient appliances can significantly reduce your energy consumption.",
+    },
+    {
+      id: 3,
+      title: "Monitor your energy usage",
+      Vtag: "warning",
+      tag: "warning",
+      description:
+        "Keep track of your energy consumption patterns to identify areas for improvement.",
+    },
+  ];
+
   return (
     <section
       style={{
@@ -228,6 +256,21 @@ function Dashboard() {
             </Bar>
           </BarChart>
         </ResponsiveContainer>
+      </div>
+      <div className="section ai-recommendations">
+        <div className="hdr">
+          <h3>ai recommendations</h3>
+          <button>view all</button>
+        </div>
+        <div className="section-body">
+          {aiRecommendations.map((item) => (
+            <div key={item.id} className={`recommendation ${item.tag}`}>
+              <div className={`visible-tag ${item.tag}`}>{item.Vtag}</div>
+              <h4>{item.title}</h4>
+              <p>{item.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
