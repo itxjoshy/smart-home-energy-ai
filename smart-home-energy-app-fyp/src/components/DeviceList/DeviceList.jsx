@@ -50,7 +50,7 @@ const devices = [
 ];
 function DeviceList() {
   return (
-    <main>
+    <section>
       <div className="input">
         <input type="text" placeholder="Search by devices" />
         <div className="filter-section">
@@ -97,7 +97,7 @@ function DeviceList() {
           </div>
         ))}
       </div>
-    </main>
+    </section>
   );
 }
 
