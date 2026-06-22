@@ -50,7 +50,11 @@ const devices = [
 ];
 function DeviceList() {
   return (
-    <section>
+    <section
+      style={{
+        padding: "0 16px",
+      }}
+    >
       <div className="input">
         <input type="text" placeholder="Search by devices" />
         <div className="filter-section">
