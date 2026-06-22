@@ -82,7 +82,7 @@
     text-transform: uppercase;
   }
 }
-.section:has(.card) {
+.savings-section {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;

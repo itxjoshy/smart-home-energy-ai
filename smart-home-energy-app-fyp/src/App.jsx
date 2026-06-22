@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Home, Monitor, Zap, BarChart2, User, Bell } from "lucide-react";
 import Dashboard from "./components/Dashboard/Dashboard";
+import DeviceList from "./components/DeviceList/DeviceList";
 
 function App() {
   const [activeTab, setActiveTab] = useState("home");
@@ -12,7 +13,7 @@ function App() {
         <Bell size={23} color="var(--accent)" />
       </div>
       {activeTab === "home" && <Dashboard />}
-      {activeTab === "devices" && <div>Devices Content</div>}
+      {activeTab === "devices" && <DeviceList />}
       {activeTab === "insights" && <div>Insights Content</div>}
       {activeTab === "chatbot" && <div>Chatbot Content</div>}
       <nav className="bottom-nav">

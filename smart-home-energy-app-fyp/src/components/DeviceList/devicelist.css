@@ -1,0 +1,95 @@
+.filter-section {
+  padding: var(--space-sm);
+  display: flex;
+  gap: 10px;
+  overflow: scroll;
+  margin-bottom: 10px;
+}
+.filter-section::-webkit-scrollbar {
+  display: none;
+}
+.filter-section :first-child {
+  min-width: 70%;
+  background: var(--accent-dim);
+  color: black;
+  font-weight: bold;
+}
+.filter-section button {
+  text-align: left;
+  width: max-content;
+  background: var(--accent-soft);
+  color: white;
+  font-size: 0.8rem;
+  text-transform: capitalize;
+  padding: 10px;
+  border-radius: var(--radius-md);
+  text-wrap: nowrap;
+}
+.device-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+.device-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .card-hdr {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .icon {
+    background-color: var(--accent-dim);
+    width: max-content;
+    padding: 15px;
+    border-radius: var(--radius-md);
+  }
+  .device-info {
+    text-transform: capitalize;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.084);
+    .device-name {
+      font-size: 1.5rem;
+      margin-bottom: -8px;
+      color: white;
+    }
+    .device-room {
+      font-size: 0.9rem;
+      color: white;
+    }
+  }
+  .analytics {
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    p {
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    h3 {
+      font-size: 2rem;
+      color: var(--accent-dim);
+      font-weight: bold;
+    }
+    .daily-cost {
+      h3 {
+        color: var(--text-primary);
+      }
+    }
+  }
+  .month-prj {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-sm) 15px;
+    border-radius: var(--radius-md);
+    background-color: rgba(255, 255, 255, 0.048);
+    p {
+      text-transform: capitalize;
+    }
+    h3 {
+      color: orange;
+      font-weight: bold;
+    }
+  }
+}

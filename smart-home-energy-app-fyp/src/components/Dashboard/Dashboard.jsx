@@ -131,12 +131,12 @@ function Dashboard() {
         >
           current monthly spend
         </h2>
-        <p className="amount-monthly ">₦12,444</p>
+        <p className="amount-monthly ">₦12,445</p>
         <div className="saving-insight-ai">
           saving 12% <span>vs</span> last month
         </div>
       </div>
-      <div className="section">
+      <div className="section savings-section">
         {moneyEst.map((item, index) => (
           <div className="card est-savings" key={index}>
             <h3>{item.tag}</h3>
