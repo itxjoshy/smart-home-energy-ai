@@ -69,7 +69,6 @@ git clone https://github.com/itxjoshy/smart-home-energy-ai.git
 cd smart-home-energy-ai
 npm install
 cp .env.example .env.local
-# add your Firebase and LLM API keys to .env.local
 npm run dev
 ```
 
