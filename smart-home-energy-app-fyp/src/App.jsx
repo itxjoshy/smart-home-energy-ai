@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Home, Monitor, Zap, BarChart2, User, Bell } from "lucide-react";
 import Dashboard from "./components/Dashboard/Dashboard";
 import DeviceList from "./components/DeviceList/DeviceList";
+import Chatbot from "./components/Chatbot/Chatbot";
 
 function App() {
   const [activeTab, setActiveTab] = useState("home");
@@ -15,7 +16,7 @@ function App() {
       {activeTab === "home" && <Dashboard />}
       {activeTab === "devices" && <DeviceList />}
       {activeTab === "insights" && <div>Insights Content</div>}
-      {activeTab === "chatbot" && <div>Chatbot Content</div>}
+      {activeTab === "chatbot" && <Chatbot />}
       <nav className="bottom-nav">
         <button
           className={`nav-item ${activeTab === "home" ? "active" : ""}`}

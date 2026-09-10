@@ -83,7 +83,9 @@ body {
   position: relative;
   overflow-x: hidden;
 }
-
+body {
+  width: 100%;
+}
 h1 {
   font-size: 28px;
   font-weight: 700;
