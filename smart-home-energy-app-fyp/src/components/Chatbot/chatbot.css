@@ -1,6 +1,13 @@
+main:has(.chatbot-panel) {
+  min-height: max-content;
+  overflow: hidden;
+}
 .chatbot-panel {
   padding: 0 var(--space-md) 0;
-  height: max-content;
+  display: flex;
+  flex-direction: column;
+  /* Constrain the panel height so the page doesn't scroll; the body will scroll instead */
+  max-height: calc(100vh - 80px);
 }
 #root:has(.chatbot-panel) {
   min-height: max-content;
@@ -62,6 +69,7 @@
   display: flex;
   gap: 8px;
   overflow-x: auto;
+
   padding-bottom: 12px;
   margin-bottom: var(--space-md);
   scrollbar-width: none;
@@ -77,22 +85,25 @@
   color: var(--text-primary);
   border: 1px solid var(--border);
   border-radius: var(--radius-full);
-  padding: 9px 12px;
+  padding: 10px 12px;
   font-size: 11px;
   font-weight: 600;
+  align-self: flex-start;
 }
 
 .chatbot-body {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  min-height: 330px;
-  margin-bottom: 60px;
+  /* Let the body take remaining space inside the panel and be scrollable */
+  flex: 1 1.6 auto;
+  min-height: 0;
   overflow-y: auto;
+  /* keep some bottom padding so last messages aren't hidden behind the fixed composer */
+  padding: 14px 12px 100px;
   background: rgba(18, 18, 18, 0.9);
   border: 1px solid var(--border);
   border-radius: 22px;
-  padding: 14px 12px;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
 }
 
